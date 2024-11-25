@@ -21,6 +21,12 @@ while mortgage_amount > 0:
         mortgage_amount = mortgage_amount * (1 + mortgage_percent / 12) - monthly_payment
         total_paid += monthly_payment
 
+    over_payment = 0
+    if mortgage_amount < 0:
+        over_payment = -mortgage_amount
+        mortgage_amount = 0
+        total_paid -= over_payment
+
     mortgage_period += 1
     print(mortgage_period, round(total_paid, 2), round(mortgage_amount, 2))
 
